@@ -10,4 +10,4 @@ Template Syntax: `$$token_name$$`
 Tokens can be in files and file or directory names
 
 For an example template, check out [simpleweb](https://github.com/a12x/simpleweb).  
-You can run `./inst.py a12x/simpleweb` instance to check it out
+You can run `./inst.py a12x/simpleweb instance` to check it out
