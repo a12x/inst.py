@@ -61,7 +61,15 @@ if __name__ == "__main__":
         sys.exit(0)
 
     script, src, dst = sys.argv
-    shutil.copytree(src, dst)
+
+    try:
+        shutil.copytree(src, dst)
+    except OSError:
+        import git
+        repo = git.Repo.clone_from("https://github.com/"+src+".git", dst)
+        print repo.bare
+
+    shutil.rmtree(dst+"/.git/")
 
     tokens = extract_tokens_from_dir(dst)
     values = prompt_tokens(tokens)
